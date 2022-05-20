@@ -64,7 +64,35 @@
 			</div>
 		</form>
 	</div>
-	
+	<div class="container table-responsive">
+		<button id="btn_refresh" onclick="window.location.reload()" class="btn btn-primary">Refrescar operaciones</button>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Numero 1</th>
+					<th>Numero 2</th>
+					<th>Operacion</th>
+					<th>Resultado</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+					foreach ($data['operaciones'] as $dato){
+						?>
+							<tr>
+								<td><?php echo $dato['numero_1']; ?></td>
+								<td><?php echo $dato['numero_2']; ?></td>
+								<td><?php echo $dato['operacion']; ?></td>
+								<td><?php echo $dato['resultado']; ?></td>
+								<td><?php echo $dato['fecha_creacion']; ?></td>
+							</tr>
+						<?php 	
+					}
+				?>
+			</tbody>
+	 	</table>
+	</div>
 	 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script type="text/javascript">	

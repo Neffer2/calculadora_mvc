@@ -7,10 +7,9 @@
 
 		public function index ($alert = null){
 			$Operaciones = new Operacion; 
-			//$data['operaciones'] = $Operaciones->all();
+			$data['operaciones'] = $Operaciones->all();
 
-			// return $this->view("Views/calculator/index.php",compact('data'));
-			return $this->view("Views/calculator/index.php");
+			return $this->view("Views/calculator/index.php",compact('data'));
 		}
  
 		public function operacion (){
