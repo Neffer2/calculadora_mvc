@@ -2,7 +2,7 @@
 	class CalculadoraController {
 
 		public function __construct (){
-			//require_once("models/Vehiculos.php");
+			require_once("models/Operacion.php");
 		}
 
 		public function index ($alert = null){
@@ -15,16 +15,16 @@
 			if ($data){
 				switch ($data['operacion']){
 					case 'sumar':
-						$this->sumar($data['num1'],$data['num2']);
+						$this->sumar($data['num1'],$data['num2'],$data['operacion']);
 						break;
 					case 'restar':
-						$this->restar($data['num1'],$data['num2']);
+						$this->restar($data['num1'],$data['num2'],$data['operacion']);
 						break;
 					case 'multiplicar':
-						$this->multiplicar($data['num1'],$data['num2']);
+						$this->multiplicar($data['num1'],$data['num2'],$data['operacion']);
 						break;
 					case 'dividir':
-						$this->dividir($data['num1'],$data['num2']);
+						$this->dividir($data['num1'],$data['num2'],$data['operacion']);
 						break;
 				}
 			}
@@ -38,24 +38,33 @@
 			return $request;
 		}
 
-		public function sumar ($num1, $num2){			
+		public function sumar ($num1, $num2, $operacion){
+			$this->store($num1, $num2, $operacion, ($num1+$num2));
 			echo json_encode(($num1+$num2));
 			exit();
 		}
 
-		public function restar ($num1, $num2){			
+		public function restar ($num1, $num2, $operacion){			
+			$this->store($num1, $num2, $operacion, ($num1-$num2));
 			echo json_encode(($num1-$num2));
 			exit();
 		}
 
-		public function multiplicar ($num1, $num2){			
+		public function multiplicar ($num1, $num2, $operacion){	
+			$this->store($num1, $num2, $operacion, ($num1*$num2));		
 			echo json_encode(($num1*$num2));
 			exit();
 		}
 
-		public function dividir ($num1, $num2){			
+		public function dividir ($num1, $num2, $operacion){			
+			$this->store($num1, $num2, $operacion, ($num1/$num2));
 			echo json_encode(($num1/$num2));
 			exit();
+		}
+
+		public function store ($num1, $num2, $operacion, $resulado){
+			$Operacion = new Operacion;
+			$Operacion->save($num1, $num2, $operacion, $resulado); 
 		}
 
 	}
