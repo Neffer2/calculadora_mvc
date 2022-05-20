@@ -4,11 +4,11 @@
 	*/
 	function get_controller($controller){
 		$name_contoller = ucwords($controller)."Controller";
-		$file_controller = "controllers/$name_contoller".".php";
+		$file_controller = "Controllers/$name_contoller".".php";
 
 		//Si no existe, redirige al controlador por defecto.
 		if (!is_file($file_controller)){
-			$file_controller = 'controllers/'.MAIN_CONTROLLER.".php";
+			$file_controller = 'Controllers/'.MAIN_CONTROLLER.".php";
 		}
 
 		//Lamma el controlador
