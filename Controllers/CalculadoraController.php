@@ -6,7 +6,10 @@
 		}
 
 		public function index ($alert = null){
-			require_once "Views/calculator/index.php";
+			$Operaciones = new Operacion; 
+			$data['operaciones'] = $Operaciones->all();
+
+			return $this->view("Views/calculator/index.php",compact('data'));
 		}
  
 		public function operacion (){
@@ -65,6 +68,15 @@
 		public function store ($num1, $num2, $operacion, $resulado){
 			$Operacion = new Operacion;
 			$Operacion->save($num1, $num2, $operacion, $resulado); 
+		}
+
+		function view($page,$variables=[])
+		{
+		    if(count($variables))
+		    {
+		        extract($variables);
+		    }
+		    require_once $page;
 		}
 
 	}
