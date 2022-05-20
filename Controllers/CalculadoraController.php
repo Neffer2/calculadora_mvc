@@ -6,10 +6,11 @@
 		}
 
 		public function index ($alert = null){
-			$Operaciones = new Operacion; 
-			$data['operaciones'] = $Operaciones->all();
+			// $Operaciones = new Operacion; 
+			// $data['operaciones'] = $Operaciones->all();
 
-			return $this->view("Views/calculator/index.php",compact('data'));
+			// return $this->view("Views/calculator/index.php",compact('data'));
+			return $this->view("Views/calculator/index.php");
 		}
  
 		public function operacion (){
