@@ -1,8 +1,8 @@
 <?php 
-	require_once("config/config.php");
-	require_once("core/routes.php");
-	require_once("config/database.php");
-	require_once("controllers/CalculadoraController.php");
+	require_once("Config/config.php");
+	require_once("Core/routes.php");
+	require_once("Config/database.php");
+	require_once("Controllers/CalculadoraController.php");
 
 	//Si existe la ruta de controlador, si no, carga lo predeterminado
 	if (isset($_GET['c'])){
